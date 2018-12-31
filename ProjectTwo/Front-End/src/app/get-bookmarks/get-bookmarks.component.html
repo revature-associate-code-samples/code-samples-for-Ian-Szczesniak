@@ -1,0 +1,16 @@
+<p>sup</p>
+<!-- <div *ngIf="display"> -->
+<div>  
+  <button (click)="getBookmarks()">View Bookmarks</button>
+  <div *ngIf="gotBookmarks">
+    <table>
+      <div *ngFor="let book of results">
+        <td>{{book.name}}</td>
+        <td>
+          <a href="{{book.url}}"></a>
+        </td>
+        
+      </div>
+    </table>
+  </div>
+</div>
