@@ -35,7 +35,7 @@ function getInfo(){
 			
 		}
 	};
-	xhr.open("GET","http://localhost:8081/ProjectOne/info");
+	xhr.open("GET","http://localhost:8082/ProjectOne/info");
 	xhr.send();
 }
 
@@ -102,7 +102,7 @@ function pendingRequests(){
 			
 		}
 	};
-	xhr2.open("GET","http://localhost:8081/ProjectOne/viewMyPendingRequests");
+	xhr2.open("GET","http://localhost:8082/ProjectOne/viewMyPendingRequests");
 	xhr2.send();
 	
 }
@@ -168,7 +168,7 @@ function resolvedRequests(){
 			}
 		}
 	};
-	xhr3.open("GET","http://localhost:8081/ProjectOne/viewMyResolvedRequests");
+	xhr3.open("GET","http://localhost:8082/ProjectOne/viewMyResolvedRequests");
 	xhr3.send();
 	
 	
@@ -191,7 +191,7 @@ function withdraw(value) {
 			resolvedRequests();
 		}
 	}
-	xhr5.open("POST", "http://localhost:8081/ProjectOne/withdrawRequest");
+	xhr5.open("POST", "http://localhost:8082/ProjectOne/withdrawRequest");
 	xhr5.setRequestHeader("Content-Type", "application/json");
 	xhr5.send(withdrawObj);
 	

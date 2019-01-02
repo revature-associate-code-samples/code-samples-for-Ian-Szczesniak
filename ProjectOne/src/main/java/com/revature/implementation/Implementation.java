@@ -81,7 +81,6 @@ Connection conn = null;
 			conn = cu.getConnection();
 			//do a join with the employee table on eid to get the firstname/lastname and then
 			//add resolved requests table to the modal
-			//String query = "Select * from reimbursement where (reimbursereq = 'Pending' and eid=?) order by reimburseid";
 			String query = "SELECT et.efirstname, et.elastname, r.reimbursereq, r.reimbursefor, r.reimburseamt, r.submittime, r.resolvetime, " + 
 					"mt.efirstname as mfirstname, mt.elastname as mlastname " + 
 					"FROM reimbursement r " + 

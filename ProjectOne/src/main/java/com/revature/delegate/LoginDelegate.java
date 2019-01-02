@@ -14,6 +14,7 @@ import com.revature.implementation.Implementation;
 
 public class LoginDelegate {
 	public EmployeeDao implement = new Implementation();
+	
 	final static Logger log = Logger.getLogger(LoginDelegate.class);
 
 	public void login(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -65,7 +66,6 @@ public class LoginDelegate {
 		session.setAttribute("user", update);
 		log.info(info.getUsername()+ " updated their information.");
 		login(req,resp);
-		/*resp.sendRedirect("html/manager.html");*/
 	}
 	
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {

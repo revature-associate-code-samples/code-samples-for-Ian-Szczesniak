@@ -33,7 +33,7 @@ function getInfo(){
 			email.innerHTML = `Email: ${info.email}`;
 		}
 	};
-	xhr.open("GET","http://localhost:8081/ProjectOne/info");
+	xhr.open("GET","http://localhost:8082/ProjectOne/info");
 	xhr.send();
 }
 
@@ -107,7 +107,7 @@ function allPendingRequests(){
 			
 		}
 	};
-	xhr2.open("GET","http://localhost:8081/ProjectOne/viewAllPendingRequests");
+	xhr2.open("GET","http://localhost:8082/ProjectOne/viewAllPendingRequests");
 	xhr2.send();
 }
 
@@ -174,7 +174,7 @@ function allResolvedRequests(){
 			
 		}
 	};
-	xhr3.open("GET","http://localhost:8081/ProjectOne/viewAllResolvedRequests");
+	xhr3.open("GET","http://localhost:8082/ProjectOne/viewAllResolvedRequests");
 	xhr3.send();
 }
 
@@ -242,7 +242,7 @@ function allEmployees() {
 			
 		}
 	};
-	xhr4.open("GET","http://localhost:8081/ProjectOne/viewAllEmployees");
+	xhr4.open("GET","http://localhost:8082/ProjectOne/viewAllEmployees");
 	xhr4.send();
 }
 
@@ -320,7 +320,7 @@ function employeePendingRequests(eId, fullname){
 			
 		}
 	};
-	xhr7.open("POST","http://localhost:8081/ProjectOne/employeePendingRequests");
+	xhr7.open("POST","http://localhost:8082/ProjectOne/employeePendingRequests");
 	xhr7.send(pendingObj);
 }
 
@@ -339,7 +339,7 @@ function approve(value) {
 			allResolvedRequests();
 		}
 	}
-	xhr5.open("POST", "http://localhost:8081/ProjectOne/approveRequest");
+	xhr5.open("POST", "http://localhost:8082/ProjectOne/approveRequest");
 	xhr5.setRequestHeader("Content-Type", "application/json");
 	xhr5.send(approveObj);
 }
@@ -359,7 +359,7 @@ function deny(value) {
 			allResolvedRequests();
 		}
 	}
-	xhr6.open("POST", "http://localhost:8081/ProjectOne/denyRequest");
+	xhr6.open("POST", "http://localhost:8082/ProjectOne/denyRequest");
 	xhr6.setRequestHeader("Content-Type", "application/json");
 	xhr6.send(denyObj);
 	

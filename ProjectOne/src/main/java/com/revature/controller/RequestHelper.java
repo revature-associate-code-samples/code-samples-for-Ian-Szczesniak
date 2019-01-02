@@ -13,28 +13,27 @@ import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
-import com.revature.delegate.HomeDelegate;
 import com.revature.delegate.LoginDelegate;
 import com.revature.implementation.Implementation;
 
 public class RequestHelper {
 	
 	final static Logger log = Logger.getLogger(RequestHelper.class);
-	private HomeDelegate hd = new HomeDelegate();
+	
 	private LoginDelegate ld = new LoginDelegate();
 	private Implementation implement = new Implementation();
+	
 	public void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String switchString = req.getRequestURI().substring(req.getContextPath().length()+1);
 		while(switchString.indexOf("/")>0) {
 			switchString = switchString.substring(0, switchString.indexOf("/"));
 		}
 		switch(switchString) {
+		
 		case "login": 
 			if("POST".equals(req.getMethod())) {
 			ld.login(req, resp);
 		} break;
-		
-		case "home": hd.goHome(req, resp); break;
 		
 		case "info": 
 			Employee info = (Employee) req.getSession().getAttribute("user");
@@ -129,7 +128,6 @@ public class RequestHelper {
 			resp.setHeader("Content-Type", "Application/json");
 			Employee employeePR = pendingRequestsObject.readValue(req.getReader(), Employee.class);
 			List<Reimbursement> employeePendingRequests = implement.employeePendingRequests(employeePR);
-			System.out.println(employeePendingRequests);
 			ObjectMapper sendEmployeePendingRequests = new ObjectMapper();
 			resp.setHeader("Content-Type", "application/json");
 			sendEmployeePendingRequests.writeValue(resp.getOutputStream(), employeePendingRequests);
