@@ -35,10 +35,10 @@ public class UserDaoImpl implements UserDao {
 		}
 		Session hiSess = HibernateUtil.getSession();
 		Transaction tx = hiSess.beginTransaction();
-		// must add address first if not already in db to avoid transient exception
+		// must add address first if it is not already in the db to avoid transient exception
 		AdrDao ad = AdrDaoImpl.getDao();
-		if (ad.getAddress(user.getAddress().getAdr_id()) == null) { // if adr not in db
-			AdrDaoImpl.getDao().addAdr(user.getAddress()); // or addAdr - if session can be opened within a session
+		if (ad.getAddress(user.getAddress().getAdr_id()) == null) {
+			AdrDaoImpl.getDao().addAdr(user.getAddress());
 		}
 		try {
 			userPK = (int) hiSess.save(user);
@@ -57,7 +57,6 @@ public class UserDaoImpl implements UserDao {
 		Query<User> q = hiSess.createQuery(hql, User.class);
 		q.setParameter("userVal", user.getUsername());
 		try {
-			//checking if a user was returned from the database
 			User user2 = q.getSingleResult();
 			if (user2==null) { return false; }
 			} catch (Exception e) {
@@ -68,9 +67,7 @@ public class UserDaoImpl implements UserDao {
 		
 	@Override
 	public User getUser(User user) {
-		
 		Session hiSess = HibernateUtil.getSession();
-		// HQL uses bean name, NOT table name
 		String hql = "FROM User WHERE username = :userVal AND pswd = :pwVal";
 		Query<User> selectUser = hiSess.createQuery(hql, User.class);
 		selectUser.setParameter("userVal", user.getUsername());
@@ -80,7 +77,7 @@ public class UserDaoImpl implements UserDao {
 			hiSess.close();
 			return user;
 		} catch (NoResultException nre) {
-			nre.printStackTrace(); // use logging
+			nre.printStackTrace();
 		}
 		hiSess.close();
 		return null;
@@ -101,7 +98,7 @@ public class UserDaoImpl implements UserDao {
 		Session hiSess = HibernateUtil.getSession();
 		Transaction tx = hiSess.beginTransaction();
 		try {
-			hiSess.update(user);
+			hiSess.merge(user);
 		} catch (NoResultException e) {
 			e.printStackTrace();
 		}
@@ -109,7 +106,4 @@ public class UserDaoImpl implements UserDao {
 		hiSess.close();
 		return user;
 	}
-
-	
-	
 }

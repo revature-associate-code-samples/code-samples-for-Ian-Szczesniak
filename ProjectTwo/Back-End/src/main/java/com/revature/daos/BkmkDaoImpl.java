@@ -15,7 +15,7 @@ import com.revature.util.HibernateUtil;
 
 public class BkmkDaoImpl implements BkmkDao {
 	
-	private static BkmkDao bd; // will typing as interface work?
+	private static BkmkDao bd;
 
 	public BkmkDaoImpl() {
 		// TODO Auto-generated constructor stub
@@ -27,20 +27,7 @@ public class BkmkDaoImpl implements BkmkDao {
 		}
 		return bd;
 	}
-
-	/*We dont need this as of right now
-	 * @Override
-	public Bookmark getBkmk(User user) {
-		Session hiSess = HibernateUtil.getSession();
-		// HQL uses bean name, NOT table name
-		String hql = "FROM Bookmark WHERE book_id = :idVal";
-		Query<Bookmark> selectBkmk = hiSess.createQuery(hql, Bookmark.class);
-		selectBkmk.setParameter("idVal", user.getUser_id());
-		Bookmark bkmk = (Bookmark) selectBkmk.getSingleResult(); // exception needs handling
-		hiSess.close();
-		return bkmk;
-	}*/
-
+	
 	@Override
 	public List<Bookmark> getAllBkmks(User user) {
 		List<Bookmark> bkmks = new ArrayList<Bookmark>();
@@ -84,10 +71,4 @@ public class BkmkDaoImpl implements BkmkDao {
 		tx.commit();
 		hiSess.close();
 	}
-	
-	
-	
-	
-	
-
 }

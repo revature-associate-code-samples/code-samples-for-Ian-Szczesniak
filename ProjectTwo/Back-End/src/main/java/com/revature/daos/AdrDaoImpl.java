@@ -1,15 +1,9 @@
 package com.revature.daos;
 
-import java.util.List;
-
 import javax.persistence.NoResultException;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-
-import com.revature.models.Address;
-import com.revature.models.User;
 import com.revature.models.Address;
 import com.revature.util.HibernateUtil;
 
@@ -31,7 +25,6 @@ public class AdrDaoImpl implements AdrDao {
 	@Override
 	public Address getAddress(int id) {
 		Session hiSess = HibernateUtil.getSession();
-		// HQL uses bean name, NOT table name
 		String hql = "FROM Address WHERE adr_id = :idVal";
 		Query<Address> selectAdr = hiSess.createQuery(hql, Address.class);
 		selectAdr.setParameter("idVal", id);
@@ -39,7 +32,7 @@ public class AdrDaoImpl implements AdrDao {
 		try {
 			adr = (Address) selectAdr.getSingleResult();
 		} catch (NoResultException nre) {
-			nre.printStackTrace(); // use logging
+			nre.printStackTrace();
 		}
 		hiSess.close();
 		return adr;
@@ -54,23 +47,5 @@ public class AdrDaoImpl implements AdrDao {
 		hiSess.close();
  		return adrPK;
 	}
-
-	@Override
-	public List<Address> getAllAdr() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean deleteAdr(int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	@Override
-	public void updateAdr(int id) {
-		
-	}
-	
 
 }

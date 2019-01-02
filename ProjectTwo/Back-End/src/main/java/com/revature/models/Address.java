@@ -36,7 +36,6 @@ public class Address {
 
 	public Address(String city, String state_name, String str_adr, int zip) {
 		super();
-		//this.adr_id = adr_id;
 		this.city = city;
 		this.state_name = state_name;
 		this.str_adr = str_adr;
