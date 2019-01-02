@@ -2,7 +2,7 @@
 
 This application is an employee reimbursement system. An employee can login, update their information, and submit reimbursement requests which can be approved or denied by a manager.
 
-https://github.com/ianszcze/Project-One-ERS
+Full Application: https://github.com/ianszcze/Project-One-ERS
 
 # Roles/Responsibilities
 

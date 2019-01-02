@@ -2,7 +2,7 @@
 
 Gorgeous Voting is a web application that provides non-opinionated election information. Users can create an account and provide an address or zip code to see information about their candidates and polling locations based on their location. Users also have the ability to bookmark candidates and other information for future reference.
 
-https://github.com/ianszcze/Project-Two-Gorgeous-Voting
+Full Application: https://github.com/ianszcze/Project-Two-Gorgeous-Voting
 
 # Roles / Responsibilites
 
