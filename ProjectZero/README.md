@@ -1,0 +1,3 @@
+# Project 0 - Banking App
+
+This is a console-based banking application. It supports two roles including users and admins. Users can create an account and login with a username and password. Admins can view all users and must approve new users before they are able to log in. Once the user logs in, they can view their info, check their funds, and perform transactions such as withdrawals and deposits. Uses Core Java, JDBC, Oracle SQL.
