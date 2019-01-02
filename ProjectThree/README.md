@@ -7,7 +7,7 @@ Full Application: https://github.com/revaturelabs/rideshare-client
 # Roles / Responsibilities
 * Team Lead for the Front-End (PWA) Team.
 * Converted the RideForce web application into a Progressive Web App.
-* Implemented essential PWA features such as the service worker, manifest.json and ability to be installed.
+* Implemented essential PWA features such as the service worker, manifest.json and the ability to be installed.
 * Utilized Lighthouse to improve key performance metrics.
 * Rendered the locations of the drivers on the map using the Google Maps API.
 * Followed the gitflow workflow and handled merge conflicts.
