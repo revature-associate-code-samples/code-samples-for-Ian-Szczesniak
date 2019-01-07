@@ -186,7 +186,7 @@ export class MapComponent implements OnInit, OnDestroy, AfterContentInit {
    * Initializes the Map with data
    */
 
-  addresses: string[] = ["9416 wooded glen avenue", "1099 godfrey road", "11740 Plaza America Dr", "829 East Sage Road"];
+  
 
   ngOnInit() {
 
@@ -203,7 +203,6 @@ export class MapComponent implements OnInit, OnDestroy, AfterContentInit {
         this.currentUser = data;
         this.mapService.getDistance(data.address).subscribe(
           coordinates => {
-            console.log("setting center good sir");
             this.currentLat = coordinates.latitude;
             this.currentLong = coordinates.longitude;
           });
@@ -214,7 +213,6 @@ export class MapComponent implements OnInit, OnDestroy, AfterContentInit {
           data2 => {
             userLinks = data2;
             for (let i = 0; i < userLinks.length; i++) {
-
               this.matchService.getFromLink(userLinks[i]).subscribe(
                 data3 => {
                   if (!data3.photoUrl || data3.photoUrl === 'null') {
